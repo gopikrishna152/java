@@ -1,0 +1,57 @@
+// Rearrange an array in maximum minimum form using Two Pointer Technique
+// Read
+// 
+
+// Given a sorted array of positive integers, rearrange the array alternately i.e first element should be a maximum value, at second position minimum value, at third position second max, at fourth position second min, and so on. 
+
+// Examples: 
+
+// Input: arr[] = {1, 2, 3, 4, 5, 6, 7} 
+// Output: arr[] = {7, 1, 6, 2, 5, 3, 4}
+
+// Input: arr[] = {1, 2, 3, 4, 5, 6} 
+// Output: arr[] = {6, 1, 5, 2, 4, 3} 
+
+import java.util.*;
+
+public class rearrange_max_min {
+    public static void Rearrange_max_min(int[] arr, int n) {
+        System.out.println("ello");
+        int temp[] = arr.clone();
+        int srt = 0;
+        int end = n - 1;
+        int count_even = 0;
+        int count_odd = 1;
+        for (int i = 0; i < n; i++) {
+            if (i % 2 == 0) {
+                if (count_even < n) {
+                    temp[count_even] = arr[end--];
+                    count_even += 2;
+                }
+
+            } else {
+                if (count_odd < n) {
+                    temp[count_odd] = arr[srt++];
+                    count_odd += 2;
+                }
+            }
+        }
+        for (int ele : temp) {
+            System.out.print(ele + " ");
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            int ele = sc.nextInt();
+            arr[i] = ele;
+
+        }
+        Rearrange_max_min(arr, n);
+
+    }
+}
