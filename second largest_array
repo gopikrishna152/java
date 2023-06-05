@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class second_largerst {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            int ele = sc.nextInt();
+            arr[i] = ele;
+
+        }
+        int first = 0;
+        int sec = 0;
+        boolean flag = false;
+        for (int j = 0; j < n; j++) {
+            if (arr[j] > first) {
+                sec = first;
+                first = arr[j];
+                // sec=first;
+
+            } else if (arr[j] > sec && arr[j] != first) {
+                sec = arr[j];
+            }
+        }
+        System.out.println(first);
+        System.out.println(sec);
+
+    }
+
+}
