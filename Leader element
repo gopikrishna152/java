@@ -1,0 +1,32 @@
+import java.util.*;
+/*input 5
+ *      1 2 3 4 5
+ * output 5 4 3 2 1 
+ */
+
+// import javax.xml.transform.Source;
+
+public class Leader_element {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the size of array: ");
+        int size = sc.nextInt();
+        int[] arr = new int[size];
+        for (int i = 0; i < size; i++) {
+            System.out.println("enter the elements ");
+            int ele = sc.nextInt();
+            arr[i] = ele;
+        }
+        int leader = arr[size - 1];
+        System.out.print("the leader element are: ");
+        System.out.print(leader + "  ");
+        for (int i = size - 2; i >= 0; i--) {
+            if (arr[i] > leader) {
+
+                leader = arr[i];
+                System.out.print(leader + "  ");
+            }
+        }
+
+    }
+}
